@@ -1,0 +1,24 @@
+{
+  "name": "oxo",
+  "version": "0.0.1",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@parcel/config-default": "^2.4.0",
+    "@parcel/transformer-elm": "2.4.0",
+    "elm": "^0.19.1-5",
+    "parcel": "^2.4.0",
+    "parcel-reporter-static-files-copy": "^1.3.4",
+    "postcss": "^8.4.12",
+    "tailwindcss": "^3.0.23"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.5.1"
+  }
+}
