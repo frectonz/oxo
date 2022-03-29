@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container {
+  @apply bg-violet-600 min-h-screen min-w-full grid place-items-center;
+}
+
+.box {
+  @apply w-96;
+}
+
+.header {
+  @apply w-full mx-auto mb-10;
+}
+
+.header__img {
+  @apply w-fit;
+}
+
+.board {
+  @apply my-10 grid gap-4 grid-cols-3 grid-rows-3 place-items-center;
+}
+
+.cell__default {
+  @apply border-2 border-violet-500 w-28 h-28;
+}
+
+.cell__win {
+  @apply shadow-2xl;
+}
+
+.reset__hidden {
+  @apply w-20 mx-auto cursor-none opacity-0;
+}
+
+.reset__visible {
+  @apply w-20 mx-auto cursor-pointer opacity-100;
+}

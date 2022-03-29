@@ -1,7 +1,7 @@
 {
   "name": "oxo",
   "version": "0.0.1",
-  "description": "",
+  "description": "A tic-tac-toe game made with elm.",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",

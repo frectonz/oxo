@@ -314,22 +314,22 @@ view model =
     { title = "OXO"
     , body =
         [ section
-            [ class "bg-violet-600 min-h-screen grid place-items-center" ]
+            [ class "container" ]
             [ section
-                [ class "w-96" ]
+                [ class "box" ]
                 [ header
-                    [ class "w-full mx-auto mb-10" ]
-                    [ img [ src "./logo.svg", class "w-fit", alt "oxo" ] [] ]
+                    [ class "header" ]
+                    [ img [ src "./logo.svg", class "header__img", alt "oxo" ] [] ]
                 , div
-                    [ class "my-10 grid gap-4 grid-cols-3 grid-rows-3 place-items-center" ]
+                    [ class "board" ]
                     (viewBoard model)
                 , case model.winPosition of
                     Just _ ->
-                        div [ class "w-20 mx-auto cursor-pointer opacity-100", onClick Reset ]
+                        div [ class "reset__visible", onClick Reset ]
                             [ img [ src "./reset.svg" ] [] ]
 
                     Nothing ->
-                        div [ class "w-20 mx-auto opacity-0" ]
+                        div [ class "reset__hidden" ]
                             [ img [ src "./reset.svg" ] [] ]
                 ]
             ]
@@ -353,20 +353,12 @@ viewBoard model =
         |> List.map
             (\( i, cell, isWinPos ) ->
                 let
-                    baseClassNames =
-                        case model.winner of
-                            NotFinished ->
-                                "cursor-pointer border-2 border-violet-500 w-28 h-28"
-
-                            _ ->
-                                "border-2 border-violet-500 w-28 h-28"
-
-                    classNames =
+                    className =
                         if isWinPos then
-                            "shadow-2xl drop-shadow-2xl " ++ baseClassNames
+                            "cell__win cell__default"
 
                         else
-                            baseClassNames
+                            "cell__default"
 
                     clickMsg =
                         case model.winner of
@@ -379,16 +371,16 @@ viewBoard model =
                 case cell of
                     Empty ->
                         div
-                            [ class classNames, onClick clickMsg ]
+                            [ class ("cursor-pointer " ++ className), onClick clickMsg ]
                             [ img [ src "./empty.svg" ] [] ]
 
                     X ->
                         div
-                            [ class classNames ]
+                            [ class ("cursor-default " ++ className) ]
                             [ img [ src "./x.svg" ] [] ]
 
                     O ->
                         div
-                            [ class classNames ]
+                            [ class ("cursor-default " ++ className) ]
                             [ img [ src "./o.svg" ] [] ]
             )
