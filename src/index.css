@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.container {
-  @apply bg-violet-600 min-h-screen min-w-full grid place-items-center;
-}
-
-.box {
-  @apply w-96;
+body {
+  @apply bg-violet-600 h-screen w-screen grid place-items-center;
 }
 
 .header {
@@ -23,7 +19,7 @@
 }
 
 .cell__default {
-  @apply border-2 border-violet-500 w-28 h-28;
+  @apply border-2 border-violet-500;
 }
 
 .cell__win {

@@ -314,24 +314,21 @@ view model =
     { title = "OXO"
     , body =
         [ section
-            [ class "container" ]
-            [ section
-                [ class "box" ]
-                [ header
-                    [ class "header" ]
-                    [ img [ src "./logo.svg", class "header__img", alt "oxo" ] [] ]
-                , div
-                    [ class "board" ]
-                    (viewBoard model)
-                , case model.winPosition of
-                    Just _ ->
-                        div [ class "reset__visible", onClick Reset ]
-                            [ img [ src "./reset.svg" ] [] ]
+            [ class "w-[90vw] sm:w-[500px]" ]
+            [ header
+                [ class "header" ]
+                [ img [ src "./logo.svg", class "header__img", alt "oxo" ] [] ]
+            , div
+                [ class "board" ]
+                (viewBoard model)
+            , case model.winPosition of
+                Just _ ->
+                    div [ class "reset__visible", onClick Reset ]
+                        [ img [ src "./reset.svg" ] [] ]
 
-                    Nothing ->
-                        div [ class "reset__hidden" ]
-                            [ img [ src "./reset.svg" ] [] ]
-                ]
+                Nothing ->
+                    div [ class "reset__hidden" ]
+                        [ img [ src "./reset.svg" ] [] ]
             ]
         ]
     }
