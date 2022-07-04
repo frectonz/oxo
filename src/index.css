@@ -19,7 +19,9 @@ body {
 }
 
 .cell__default {
-  @apply border-2 border-violet-500;
+  @apply border-2 border-violet-500 active:scale-75;
+  transition: transform 0.1s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cell__win {

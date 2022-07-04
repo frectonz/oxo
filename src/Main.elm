@@ -314,7 +314,7 @@ view model =
     { title = "OXO"
     , body =
         [ section
-            [ class "w-[90vw] sm:w-[500px]" ]
+            [ class "w-[90vw] p-4 sm:w-[500px]" ]
             [ header
                 [ class "header" ]
                 [ img [ src "./logo.svg", class "header__img", alt "oxo" ] [] ]
@@ -367,17 +367,17 @@ viewBoard model =
                 in
                 case cell of
                     Empty ->
-                        div
+                        button
                             [ class ("cursor-pointer " ++ className), onClick clickMsg ]
                             [ img [ src "./empty.svg" ] [] ]
 
                     X ->
-                        div
+                        button
                             [ class ("cursor-default " ++ className) ]
                             [ img [ src "./x.svg" ] [] ]
 
                     O ->
-                        div
+                        button
                             [ class ("cursor-default " ++ className) ]
                             [ img [ src "./o.svg" ] [] ]
             )

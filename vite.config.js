@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [
     elmPlugin(),
     VitePWA({
-      includeAssets: ["/public/**", "robots.txt"],
+      includeAssets: ["public/**", "robots.txt"],
       manifest: {
         name: "OXO",
         short_name: "OXO",
