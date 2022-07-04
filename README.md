@@ -21,5 +21,5 @@ pnpm install
 Run the start script
 
 ```sh
-pnpm start
+pnpm dev
 ```
