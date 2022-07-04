@@ -33,5 +33,7 @@ body {
 }
 
 .reset__visible {
-  @apply w-20 mx-auto cursor-pointer opacity-100;
+  @apply w-20 mx-auto cursor-pointer opacity-100 active:scale-75;
+  transition: transform 0.1s ease-in-out;
+  -webkit-tap-highlight-color: transparent;
 }
