@@ -1,5 +1,8 @@
 import { Elm } from "./Main.elm";
 import confetti from "canvas-confetti";
+import { registerSW } from "virtual:pwa-register";
+
+registerSW();
 
 const app = Elm.Main.init({
   node: document.getElementById("app"),
@@ -44,5 +47,4 @@ function launchConfetti() {
       origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
     });
   }, 250);
-  console.log("hello");
 }

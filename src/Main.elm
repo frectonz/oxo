@@ -3,8 +3,9 @@ port module Main exposing (..)
 import Browser exposing (UrlRequest)
 import Browser.Navigation as Nav
 import Html exposing (..)
-import Html.Attributes exposing (alt, class, src)
+import Html.Attributes exposing (class)
 import Html.Events exposing (onClick)
+import Icons
 import List.Extra exposing (find, groupsOf, indexedFoldl, transpose)
 import Maybe.Extra as MaybeExtra
 import Url exposing (Url)
@@ -314,21 +315,21 @@ view model =
     { title = "OXO"
     , body =
         [ section
-            [ class "w-[90vw] p-4 sm:w-[500px]" ]
+            [ class "conatainer" ]
             [ header
                 [ class "header" ]
-                [ img [ src "./logo.svg", class "header__img", alt "oxo" ] [] ]
+                [ Icons.logoSvg ]
             , div
                 [ class "board" ]
                 (viewBoard model)
             , case model.winPosition of
                 Just _ ->
-                    div [ class "reset__visible", onClick Reset ]
-                        [ img [ src "./reset.svg" ] [] ]
+                    button [ class "reset", onClick Reset ]
+                        [ Icons.restSvg ]
 
                 Nothing ->
-                    div [ class "reset__hidden" ]
-                        [ img [ src "./reset.svg" ] [] ]
+                    div [ class "reset opacity-0" ]
+                        [ Icons.restSvg ]
             ]
         ]
     }
@@ -352,10 +353,10 @@ viewBoard model =
                 let
                     className =
                         if isWinPos then
-                            "cell__win cell__default"
+                            "cell shadow-2xl"
 
                         else
-                            "cell__default"
+                            "cell"
 
                     clickMsg =
                         case model.winner of
@@ -369,15 +370,15 @@ viewBoard model =
                     Empty ->
                         button
                             [ class ("cursor-pointer " ++ className), onClick clickMsg ]
-                            [ img [ src "./empty.svg" ] [] ]
+                            [ Icons.emptySvg ]
 
                     X ->
                         button
                             [ class ("cursor-default " ++ className) ]
-                            [ img [ src "./x.svg" ] [] ]
+                            [ Icons.xSvg ]
 
                     O ->
                         button
                             [ class ("cursor-default " ++ className) ]
-                            [ img [ src "./o.svg" ] [] ]
+                            [ Icons.oSvg ]
             )
